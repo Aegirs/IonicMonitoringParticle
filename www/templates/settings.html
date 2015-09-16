@@ -1,0 +1,33 @@
+<ion-view view-title="Settings">
+  <ion-content class="padding">
+    <i ng-if="token != null" >
+      <ion-list>
+        <label class="item item-icon-right">
+            <td>{{token.token}}</td>
+            <span class="item-note">
+              {{expires_in}}
+            </span>
+        </label>
+      </ion-list>
+      <label class="item">
+        <button ng-click="logOut()" class="button button-block button-assertive" type="submit">Log out</button>
+      </label>
+    </i>
+
+    <i ng-if="token == null" >
+      <form ng-submit="doLogin()">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Username" ng-model="loginData.username">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="loginData.password">
+          </label>
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Log in</button>
+          </label>
+        </div>
+      </form>
+    </i>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title={{function}}>
+  <ion-content class="padding">
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Show as
+        </div>
+        <select>
+          <option selected>String</option>
+          <option>Graph 2D</option>
+          <option>Graph 2D polaire</option>
+        </select>
+      </label>
+    </div>
+
+    <form ng-submit="sendData()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="arguments" ng-model="args.value">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Send</button>
+        </label>
+      </div>
+    </form>
+
+    <div class="list">
+      <div ng-click="unWindVar=!unWindVar" class="item item-divider">
+        Result
+      </div>
+
+      <label class="item">
+          {{result}}
+      </label>
+
+    </div>
+  </ion-content>
+</ion-view>

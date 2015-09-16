@@ -1,0 +1,45 @@
+<ion-view view-title={{core.name}}>
+  <ion-content class="padding">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <h1></h1>
+    <div class="list">
+      <div class="item item-divider">
+        Informations
+      </div>
+
+      <label class="item">
+        Last heard: {{core.last_heard  | date:"MM/dd/yyyy 'at' h:mma"}}
+
+      </label>
+      <label class="item">
+        Last IP Address: {{core.last_ip_address}}
+
+      </label>
+
+    </div>
+
+    <div class="list">
+      <div ng-click="unWindVar=!unWindVar" class="item item-divider">
+        Variables
+        <span class="badge badge-royal">{{nbVars}}</span>
+      </div>
+
+      <a ng-if="unWindVar" class="item" href="#/app/cores/{{core.id}}/variable/{{key}}" ng-repeat="(key,type) in variables">
+          {{key}} : {{type}}
+      </a>
+
+      <div ng-click="unWindFunc=!unWindFunc" class="item item-divider">
+        Functions
+        <span class="badge badge-royal">{{nbFuncs}}</span>
+      </div>
+      <a ng-if="unWindFunc" class="item" href="#/app/cores/{{core.id}}/function/{{function}}" ng-repeat="function in functions">
+            {{function}}
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

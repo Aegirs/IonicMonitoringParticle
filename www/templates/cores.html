@@ -1,0 +1,20 @@
+<ion-view view-title="{{coresTitle}}">
+  <ion-content class="padding">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list show-delete="false" can-swipe="true" >
+      <ion-item class="item" href="#/app/cores/{{core.id}}" ng-repeat="core in cores">
+          {{core.name}}
+          <span ng-if="core.connected" class="item-note">
+            Connected
+          </span>
+          <span ng-if="!core.connected" class="item-note">
+            Disconnected
+          </span>
+          <ion-option-button ng-click="deleteCore(core.id)" class="button-assertive icon ion-trash-a"></ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
